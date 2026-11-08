@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#E7ECEF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11161C" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Sesiones cortas para estudiar saneamiento de edificaciones en el Perú: declaratoria de fábrica, regularización e independización.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icono-192.png">
+<link rel="apple-touch-icon" href="icono-180.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<title>Saneamiento en Ruta</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,50..100&family=Commissioner:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Concepto: un expediente de bolsillo. Hojas de papel bond celeste, tinta de sello azul,
+   y la respuesta de cada pregunta vuelve como un sello: CONFORME u OBSERVADO. */
+:root{
+  --bg:#E7ECEF; --hoja:#F8FAFA; --hoja2:#EEF2F4; --tinta:#1B2430; --suave:#586472; --linea:#CBD4DA;
+  --sello:#2D47A6; --sello-fondo:#E3E8F8; --ok:#1E7A4C; --ok-fondo:#E2F2E9; --mal:#B0332B; --mal-fondo:#F8E5E3;
+  --ojo:#8F5B00; --ojo-fondo:#FBF0D9; --sombra:0 1px 2px rgba(27,36,48,.06),0 6px 18px rgba(27,36,48,.06);
+  --f-titulo:"Fraunces",Georgia,"Times New Roman",serif; --f-texto:"Commissioner",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11161C; --hoja:#19212A; --hoja2:#1F2832; --tinta:#E5EAEE; --suave:#9AA6B2; --linea:#2D3843;
+  --sello:#94A9FF; --sello-fondo:#232E4F; --ok:#62C893; --ok-fondo:#17322A; --mal:#FF8F85; --mal-fondo:#3A1F1E;
+  --ojo:#E9B651; --ojo-fondo:#352A14; --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11161C; --hoja:#19212A; --hoja2:#1F2832; --tinta:#E5EAEE; --suave:#9AA6B2; --linea:#2D3843;
+  --sello:#94A9FF; --sello-fondo:#232E4F; --ok:#62C893; --ok-fondo:#17322A; --mal:#FF8F85; --mal-fondo:#3A1F1E;
+  --ojo:#E9B651; --ojo-fondo:#352A14; --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--bg)}
+body{color:var(--tinta);font-family:var(--f-texto);font-size:16.5px;line-height:1.55;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2.5px solid var(--sello);outline-offset:2px;border-radius:6px}
+a{color:var(--sello)}
+.envoltura{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px calc(96px + env(safe-area-inset-bottom,0px))}
+
+/* Cabecera */
+.cab{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px 8px;display:flex;align-items:center;gap:10px;border-bottom:1px solid transparent}
+.cab.borde{border-bottom-color:var(--linea)}
+.cab h1{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:650;font-size:1.15rem;margin:0;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.volver{border:0;background:var(--hoja);border-radius:999px;width:38px;height:38px;display:grid;place-items:center;box-shadow:var(--sombra);flex:none}
+.chip-sync{font-size:.72rem;color:var(--suave);border:1px solid var(--linea);border-radius:999px;padding:2px 9px;white-space:nowrap}
+
+/* Tipografía */
+h2{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:650;font-size:1.55rem;line-height:1.2;margin:.2em 0 .3em;text-wrap:balance}
+h3{font-family:var(--f-titulo);font-variation-settings:"SOFT" 80;font-weight:600;font-size:1.18rem;line-height:1.3;margin:0 0 .4em;text-wrap:balance}
+.eti{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--suave);font-weight:600}
+.mono{font-family:var(--f-mono);font-size:.85em}
+p{margin:.45em 0}
+.suave{color:var(--suave)}
+
+/* Portada */
+.saludo{padding-block:14px 6px}
+.saludo p{max-width:60ch}
+.avance{display:flex;align-items:center;gap:12px;margin:12px 0 4px}
+.barra{flex:1;height:8px;border-radius:99px;background:var(--hoja2);overflow:hidden;border:1px solid var(--linea)}
+.barra i{display:block;height:100%;background:var(--sello);border-radius:99px;transition:width .4s}
+.avance b{font-variant-numeric:tabular-nums;font-size:.9rem}
+.continuar{display:block;width:100%;text-align:left;border:0;margin:14px 0 6px;padding:16px 18px;border-radius:16px;background:var(--sello);color:#fff;box-shadow:var(--sombra)}
+:root[data-theme="dark"] .continuar{color:#0E1530}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .continuar{color:#0E1530}}
+.continuar .eti{color:inherit;opacity:.8}
+.continuar strong{display:block;font-family:var(--f-titulo);font-size:1.25rem;font-weight:650;margin-top:2px}
+.continuar span.min{font-size:.85rem;opacity:.85}
+
+.modulo{margin-top:22px}
+.modulo header{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.modulo header .num{font-family:var(--f-mono);font-size:.8rem;color:var(--sello);border:1.5px solid var(--sello);border-radius:6px;padding:0 6px}
+.modulo header h3{margin:0}
+.lista{display:grid;gap:8px}
+.ses{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1px solid var(--linea);background:var(--hoja);border-radius:14px;padding:12px 14px}
+.ses .txt{flex:1;min-width:0}
+.ses .txt b{display:block;font-weight:600;line-height:1.3}
+.ses .txt small{color:var(--suave)}
+.estado{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 7px;white-space:nowrap;border:1.5px solid currentColor}
+.estado.pend{color:var(--suave);border-style:dashed}
+.estado.ok{color:var(--ok)}
+.estado.obs{color:var(--mal)}
+
+/* Fichas de lectura */
+.pasos{display:flex;gap:6px;margin:6px 0 14px}
+.pasos span{flex:1;font-size:.72rem;text-align:center;padding:5px 2px;border-radius:8px;background:var(--hoja2);color:var(--suave);border:1px solid var(--linea)}
+.pasos span.on{background:var(--sello-fondo);color:var(--sello);border-color:var(--sello);font-weight:600}
+.pasos span.hecho{color:var(--ok);border-color:var(--ok)}
+.ficha{background:var(--hoja);border:1px solid var(--linea);border-radius:16px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--sombra)}
+.ficha .n{font-family:var(--f-mono);font-size:.75rem;color:var(--suave)}
+.ficha ul,.ficha ol{padding-left:1.2em;margin:.4em 0}
+.ficha li{margin:.25em 0}
+.ej{background:var(--hoja2);border-left:3px solid var(--sello);border-radius:4px 10px 10px 4px;padding:10px 12px;margin-top:10px;font-size:.95rem}
+.ej .eti{display:block;margin-bottom:2px;color:var(--sello)}
+.ojo{background:var(--ojo-fondo);color:var(--tinta);border-radius:12px;padding:12px 14px;margin:4px 0 14px;font-size:.95rem;border:1px solid color-mix(in oklab,var(--ojo) 40%,transparent)}
+.ojo .eti{color:var(--ojo);display:block;margin-bottom:2px}
+.tabla{overflow-x:auto;margin-top:8px}
+.tabla table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+.tabla th,.tabla td{border-bottom:1px solid var(--linea);padding:6px 8px;text-align:left}
+.tabla td.r,.tabla th.r{text-align:right}
+
+/* Árbol de decisión */
+.arbol{display:grid;gap:8px;margin-top:8px}
+.rama{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--hoja2);border-radius:12px;padding:10px 12px;border:1px solid var(--linea)}
+.rama .letra{font-family:var(--f-mono);font-weight:500;color:var(--sello);border:1.5px solid var(--sello);border-radius:50%;width:28px;height:28px;display:grid;place-items:center;font-size:.85rem}
+.rama b{display:block;line-height:1.3}
+.rama small{display:block;color:var(--suave);line-height:1.4;margin-top:2px}
+.rama .va{display:inline-block;margin-top:5px;font-size:.85rem;font-weight:600;color:var(--sello)}
+
+/* Botones */
+.acciones{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:600;background:var(--sello);color:#fff;min-height:46px}
+:root[data-theme="dark"] .btn:not(.sec):not(.bajo){color:#0E1530}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn:not(.sec):not(.bajo){color:#0E1530}}
+.btn.sec{background:var(--hoja);color:var(--tinta);border:1px solid var(--linea)}
+.btn.bajo{background:transparent;color:var(--sello);padding-inline:8px}
+.btn[disabled]{opacity:.5;cursor:default}
+.btn.ancho{flex:1}
+
+/* Preguntas */
+.preg{background:var(--hoja);border:1px solid var(--linea);border-radius:16px;padding:18px;box-shadow:var(--sombra);position:relative;overflow:hidden}
+.preg .q{font-size:1.08rem;font-weight:600;line-height:1.4;margin:6px 0 14px}
+.ops{display:grid;gap:8px}
+.op{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1.5px solid var(--linea);background:var(--hoja);border-radius:12px;padding:11px 12px;line-height:1.4}
+.op .l{font-family:var(--f-mono);font-size:.8rem;color:var(--suave);padding-top:2px}
+.op.elegida.bien,.op.correcta{border-color:var(--ok);background:var(--ok-fondo)}
+.op.elegida.malo{border-color:var(--mal);background:var(--mal-fondo)}
+.op[disabled]{cursor:default}
+.expl{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea);font-size:.96rem}
+.sello{display:inline-block;font-family:var(--f-mono);font-weight:500;letter-spacing:.14em;font-size:.95rem;padding:4px 12px;border:2.5px solid currentColor;border-radius:6px;transform:rotate(-4deg);margin:2px 0 8px}
+.sello.ok{color:var(--ok)} .sello.mal{color:var(--mal)}
+@media (prefers-reduced-motion: no-preference){.sello{animation:sellar .32s cubic-bezier(.2,1.6,.4,1)}@keyframes sellar{from{transform:rotate(-4deg) scale(1.6);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:1}}}
+.contador{font-variant-numeric:tabular-nums}
+
+/* Escrito y oral */
+textarea{width:100%;min-height:150px;border:1.5px solid var(--linea);border-radius:12px;padding:12px;background:var(--hoja);line-height:1.5;resize:vertical}
+textarea:focus{border-color:var(--sello);outline:none}
+.consejo-voz{display:flex;gap:10px;align-items:flex-start;background:var(--sello-fondo);border-radius:12px;padding:10px 12px;font-size:.93rem;margin-bottom:10px}
+.mic{flex:none;width:30px;height:30px;border-radius:50%;background:var(--sello);display:grid;place-items:center}
+.mic svg{width:16px;height:16px;fill:var(--hoja)}
+.nota{display:flex;align-items:center;gap:14px;margin:6px 0 4px}
+.nota .cifra{font-family:var(--f-titulo);font-size:2.4rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.nota .cifra small{font-size:1rem;color:var(--suave);font-weight:500}
+.bloque-eval h4{margin:12px 0 4px;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--suave)}
+.bloque-eval ul{margin:0;padding-left:1.2em}
+.chequeo{display:grid;gap:6px;margin:8px 0}
+.chequeo label{display:flex;gap:10px;align-items:flex-start;background:var(--hoja2);border-radius:10px;padding:9px 11px;line-height:1.4}
+.chequeo input{margin-top:4px;width:18px;height:18px;accent-color:var(--sello);flex:none}
+.modelo{background:var(--hoja2);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:.96rem}
+.pensando{display:flex;align-items:center;gap:10px;color:var(--suave);margin:12px 0}
+.pensando i{width:10px;height:10px;border-radius:50%;background:var(--sello)}
+@media (prefers-reduced-motion: no-preference){.pensando i{animation:latir 1s infinite alternate}@keyframes latir{to{opacity:.25;transform:scale(.7)}}}
+
+/* Resumen */
+.resumen{text-align:center;padding:22px 18px}
+.resumen .sello{font-size:1.3rem;padding:8px 18px}
+
+/* Glosario */
+.buscar{width:100%;border:1.5px solid var(--linea);background:var(--hoja);border-radius:12px;padding:11px 14px;margin:6px 0 10px}
+.filtros{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.filtro{border:1px solid var(--linea);background:var(--hoja);border-radius:999px;padding:5px 12px;font-size:.85rem}
+.filtro.on{background:var(--sello);border-color:var(--sello);color:var(--hoja)}
+.termino{background:var(--hoja);border:1px solid var(--linea);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.termino b{font-weight:650}
+.termino p{margin:.2em 0 0;font-size:.96rem}
+.tarjeta{width:100%;min-height:230px;border:1px solid var(--linea);background:var(--hoja);border-radius:18px;box-shadow:var(--sombra);padding:24px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px}
+.tarjeta .t{font-family:var(--f-titulo);font-size:1.6rem;font-weight:650;line-height:1.2}
+.tarjeta .d{font-size:1rem;max-width:44ch}
+
+/* Navegación inferior */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:color-mix(in oklab,var(--hoja) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--linea);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.nav div{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 4px 8px;text-decoration:none;color:var(--suave);font-size:.74rem;font-weight:600;position:relative}
+.nav a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav a.on{color:var(--sello)}
+.badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--mal);color:#fff;border-radius:99px;font-size:.65rem;padding:0 5px;line-height:1.5;font-variant-numeric:tabular-nums}
+.fuente{background:var(--hoja);border:1px solid var(--linea);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.fuente b{display:block}
+.fuente small{color:var(--suave)}
+.vacio{text-align:center;padding:30px 10px;color:var(--suave)}
+</style>
+
+<div class="envoltura">
+  <header class="cab" id="cab">
+    <button class="volver" id="volver" hidden aria-label="Volver">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <h1 id="titulo">Saneamiento en Ruta</h1>
+    <span class="chip-sync" id="sync">En este equipo</span>
+  </header>
+  <main id="app"></main>
+</div>
+
+<nav class="nav" aria-label="Secciones">
+  <div>
+    <a href="#" data-v="inicio"><svg viewBox="0 0 24 24"><path d="M4 19V8l8-4 8 4v11"/><path d="M9 19v-6h6v6"/></svg>Ruta</a>
+    <a href="#glosario" data-v="glosario"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg>Glosario</a>
+    <a href="#repaso" data-v="repaso"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>Repaso<span class="badge" id="badge" hidden>0</span></a>
+    <a href="#fuentes" data-v="fuentes"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>Normas</a>
+  </div>
+</nav>
+
+<script>
+/* ================== CONTENIDO ================== */
+const MODULOS = [
+{ id:"m0", num:"00", titulo:"Bases", sub:"El mapa antes del camino", sesiones:[
+ { id:"s01", titulo:"Qué significa sanear un inmueble", min:6,
+   fichas:[
+    { t:"Dos realidades que deben coincidir",
+      p:[`Todo inmueble existe dos veces: <b>en el terreno</b> (lo que de verdad está construido) y <b>en los papeles</b> (lo que dicen la municipalidad y los Registros Públicos).`,
+         `<b>Sanear</b> es lograr que los papeles digan lo mismo que el terreno.`],
+      ej:`Una casa de 3 pisos en Comas. En SUNARP su partida dice solo «terreno de 160 m²». Para venderla con crédito hipotecario, el banco pedirá que la construcción esté inscrita.` },
+    { t:"Saneamiento físico y saneamiento legal",
+      p:[`<b>Físico:</b> áreas, linderos, medidas y lo construido.`,
+         `<b>Legal:</b> quién es el dueño y si hay hipotecas, embargos o una herencia sin resolver.`,
+         `Como arquitecta te tocará sobre todo la parte física y técnica. La legal la ve un abogado o el notario, pero tienes que saber leerla.`] },
+    { t:"Quién es quién",
+      p:[`<ul>
+        <li><b>Municipalidad distrital:</b> da licencias y certificados de parámetros, regulariza obras y otorga la conformidad de obra.</li>
+        <li><b>SUNARP (Registro de Predios):</b> inscribe. No da permisos: publica lo que ya está en regla.</li>
+        <li><b>Notario:</b> certifica firmas y da fe de documentos. También extiende escrituras públicas.</li>
+        <li><b>Verificador responsable:</b> arquitecto o ingeniero civil inscrito en SUNARP que constata la edificación y firma.</li>
+        <li><b>CAP / CIP:</b> los colegios certifican que el profesional está hábil.</li></ul>`] },
+    { t:"Tus tres trámites en una línea",
+      p:[`<ol>
+        <li><b>Licencia o regularización municipal:</b> el permiso. ¿Se puede construir esto aquí?</li>
+        <li><b>Declaratoria de fábrica:</b> inscribir en SUNARP lo construido.</li>
+        <li><b>Independización:</b> darle a cada departamento o tienda su propia partida.</li></ol>`,
+         `Casi siempre van en ese orden: permiso, luego fábrica, luego independización.`] }
+   ],
+   ojo:`La ley actual dice «declaratoria de edificación». En las oficinas y en SUNARP vas a seguir oyendo «declaratoria de fábrica». Son lo mismo.`,
+   preguntas:[
+    { q:"¿Qué hace SUNARP en el saneamiento de una edificación?", ops:["Otorga la licencia de construcción","Inscribe y publica la edificación en la partida del predio","Inspecciona la obra y pone multas","Aprueba los parámetros urbanísticos"], ok:1,
+      exp:"SUNARP inscribe y da publicidad. Las licencias, multas y parámetros son de la municipalidad." },
+    { q:"Una casa tiene 3 pisos construidos, pero en su partida solo figura el terreno. ¿Qué falta inscribir?", ops:["La independización","La declaratoria de fábrica","La subdivisión","El reglamento interno"], ok:1,
+      exp:"La declaratoria de fábrica es la que inscribe lo construido. Las otras vienen después o son para otros casos." },
+    { q:"¿Quién emite el certificado de parámetros urbanísticos y edificatorios?", ops:["SUNARP","La municipalidad","La notaría","El Colegio de Arquitectos"], ok:1,
+      exp:"Lo emite la municipalidad (en Lima, la distrital), porque ella fija qué se puede construir en cada lote." },
+    { q:"¿Cuál es el orden habitual?", ops:["Independización, luego fábrica, luego licencia","Fábrica, luego licencia, luego independización","Licencia o regularización, luego fábrica, luego independización","Da igual el orden"], ok:2,
+      exp:"Primero el permiso, luego se inscribe lo construido y al final se separan las unidades." },
+    { q:"El saneamiento legal revisa sobre todo…", ops:["Los retiros y la altura","La titularidad y las cargas, como hipotecas o embargos","El valor de obra","Los materiales de la estructura"], ok:1,
+      exp:"Lo legal es quién es el dueño y qué cargas pesan sobre el inmueble. Lo físico es lo construido." }
+   ],
+   escrita:{ q:"Explica con tus palabras qué significa sanear un inmueble y por qué le conviene al propietario.",
+     puntos:["Hacer coincidir la realidad física con lo que figura en la municipalidad y en SUNARP","Distinguir la parte física (áreas, construcción) de la legal (titularidad, cargas)","Beneficios: vender, hipotecar, heredar o acceder a crédito con seguridad","El registro da seguridad jurídica frente a terceros"],
+     modelo:"Sanear es lograr que lo que está construido coincida con lo que dicen la municipalidad y los Registros Públicos. Tiene una parte física (áreas, linderos, construcción) y una legal (quién es el dueño y qué cargas tiene). Al propietario le conviene porque con el inmueble en regla puede venderlo, hipotecarlo o heredarlo sin problemas, y lo inscrito lo protege frente a terceros." },
+   oral:{ q:"Un cliente te pregunta: «¿Para qué tengo que ir a la municipalidad y también a SUNARP?». Explícale la diferencia en un minuto.",
+     puntos:["La municipalidad da el permiso y verifica que se cumplan las normas","SUNARP inscribe y hace pública la situación del inmueble","Uno no reemplaza al otro: primero la municipalidad (si corresponde) y luego el registro","Lo inscrito protege al dueño frente a terceros"],
+     modelo:"La municipalidad revisa si lo que construyó cumple las normas y le da el permiso. SUNARP no da permisos: inscribe lo que ya está en regla para que cualquiera pueda verlo y para protegerlo a usted. Por eso se necesitan los dos: primero el permiso y después la inscripción." }
+ },
+ { id:"s02", titulo:"Los documentos de todos los días", min:7,
+   fichas:[
+    { t:"La partida registral",
+      p:[`Es la «ficha» del inmueble en SUNARP, con un número (por ejemplo, <span class="mono">P01234567</span>). Cada acto inscrito es un <b>asiento</b>.`,
+         `Los asientos se agrupan en rubros. Los que más vas a mirar:`,
+         `<ul><li><b>Descripción del inmueble:</b> área, linderos, medidas y la construcción inscrita.</li>
+          <li><b>Títulos de dominio:</b> quiénes son los dueños.</li>
+          <li><b>Cargas y gravámenes:</b> hipotecas, embargos y cargas técnicas.</li></ul>`] },
+    { t:"Copia literal, CRI y búsqueda catastral",
+      p:[`<ul><li><b>Copia literal:</b> copia de los asientos de la partida. Se pide en SUNARP o en línea.</li>
+          <li><b>CRI (Certificado Registral Inmobiliario):</b> resume dueños y cargas a una fecha. Lo piden bancos y notarios.</li>
+          <li><b>Certificado de búsqueda catastral:</b> ubica el predio en la base gráfica de SUNARP y dice si se superpone con otro.</li>
+          <li><b>Título archivado:</b> los documentos que sustentaron cada inscripción. Ahí suelen estar los planos antiguos.</li></ul>`] },
+    { t:"Documentos municipales",
+      p:[`<ul><li><b>Certificado de parámetros urbanísticos y edificatorios:</b> dice qué se permite en ese lote (zonificación, altura máxima, retiros, área libre, coeficiente de edificación, estacionamientos). Contra él se compara tu edificación. Tiene una vigencia de 36 meses.</li>
+          <li><b>HR y PU (autoavalúo):</b> la declaración del impuesto predial. HR es la hoja resumen y PU, la del predio urbano. Muestran las áreas declaradas y sirven para probar la antigüedad de la construcción.</li>
+          <li><b>TUPA:</b> la lista oficial de requisitos, plazos y costos de cada trámite en esa municipalidad.</li></ul>`] },
+    { t:"Formularios y documentos técnicos",
+      p:[`<ul><li><b>FUE:</b> Formulario Único de Edificación (municipal).</li>
+          <li><b>FOR:</b> Formulario Registral de SUNARP para la regularización de la Ley 27157.</li>
+          <li><b>Plano de ubicación y localización:</b> el lote en la manzana, el esquema de localización, el cuadro de áreas y los parámetros.</li>
+          <li><b>Memoria descriptiva:</b> describe en texto lo que muestran los planos.</li>
+          <li><b>Carta de seguridad de obra:</b> la firma un ingeniero civil y da fe de la estructura.</li>
+          <li><b>ITV:</b> Informe Técnico de Verificación, del verificador responsable.</li></ul>`],
+      ej:`<span class="eti">Cuadro de áreas típico</span>
+        <div class="tabla"><table><tbody>
+        <tr><td>Área de terreno</td><td class="r">160.00 m²</td></tr>
+        <tr><td>1.er piso techado</td><td class="r">120.00 m²</td></tr>
+        <tr><td>2.º piso techado</td><td class="r">125.00 m²</td></tr>
+        <tr><td>3.er piso techado</td><td class="r">125.00 m²</td></tr>
+        <tr><th>Área techada total</th><th class="r">370.00 m²</th></tr>
+        <tr><td>Área libre (160 − 120)</td><td class="r">40.00 m² · 25 %</td></tr></tbody></table></div>` }
+   ],
+   ojo:`Los formatos (FUE, FOR) se actualizan. Descárgalos siempre de la web oficial del Ministerio de Vivienda o de SUNARP y no reutilices uno viejo.`,
+   preguntas:[
+    { q:"¿Qué documento te dice cuántos pisos y qué retiros se permiten en un lote?", ops:["La copia literal","El certificado de parámetros urbanísticos y edificatorios","La HR del autoavalúo","El CRI"], ok:1,
+      exp:"El certificado de parámetros fija las reglas del lote: altura, retiros, área libre, coeficiente, etc." },
+    { q:"¿En qué rubro de la partida figuran las hipotecas y los embargos?", ops:["Descripción del inmueble","Títulos de dominio","Cargas y gravámenes","Título archivado"], ok:2,
+      exp:"Las hipotecas, embargos y cargas técnicas van en cargas y gravámenes." },
+    { q:"¿Qué te dice si un predio se superpone con otro en la base gráfica de SUNARP?", ops:["El certificado de búsqueda catastral","La memoria descriptiva","El FUE","La carta de seguridad de obra"], ok:0,
+      exp:"La búsqueda catastral ubica el predio en la base gráfica registral." },
+    { q:"El FOR es…", ops:["El formulario municipal de licencias","El formulario registral de SUNARP para regularizar por la Ley 27157","Un plano de ubicación","La hoja resumen del autoavalúo"], ok:1,
+      exp:"FOR = Formulario Registral. El municipal es el FUE." },
+    { q:"Terreno de 200 m² con primer piso techado de 150 m². ¿Cuál es el área libre?", ops:["50 m² (25 %)","150 m² (75 %)","50 m² (33 %)","25 m² (12.5 %)"], ok:0,
+      exp:"200 − 150 = 50 m². 50 ÷ 200 = 25 %. El área libre se mide sobre el terreno." }
+   ],
+   escrita:{ q:"Te entregan la copia literal de un predio. ¿Qué tres cosas revisas primero y en qué parte de la partida las encuentras?",
+     puntos:["Que el propietario inscrito sea tu cliente (títulos de dominio)","Área, linderos, medidas y si ya hay construcción inscrita (descripción del inmueble)","Si hay hipotecas, embargos o cargas técnicas (cargas y gravámenes)"],
+     modelo:"Primero miro en títulos de dominio que el dueño inscrito sea mi cliente. Luego, en la descripción del inmueble, el área, los linderos y si ya hay fábrica inscrita. Por último reviso cargas y gravámenes por si hay hipotecas, embargos o cargas técnicas que compliquen el trámite." },
+   oral:{ q:"Explica en voz alta para qué sirve el certificado de parámetros y qué datos trae.",
+     puntos:["Lo emite la municipalidad","Fija lo que se permite construir en ese lote","Datos: zonificación, altura, retiros, área libre, coeficiente de edificación, estacionamientos","Sirve para comparar lo construido o proyectado","Tiene vigencia (36 meses)"],
+     modelo:"El certificado de parámetros lo da la municipalidad y dice qué se puede construir en un lote: la zonificación, la altura máxima, los retiros, el área libre mínima, el coeficiente de edificación y los estacionamientos. Con él comparo lo que está construido. Tiene una vigencia de 36 meses." }
+ }
+]},
+{ id:"m1", num:"01", titulo:"Declaratoria de fábrica", sub:"Inscribir lo construido", sesiones:[
+ { id:"s11", titulo:"Qué es y qué camino toca", min:7,
+   fichas:[
+    { t:"Qué es",
+      p:[`Es el acto con el que el propietario declara lo que construyó para que se inscriba en su partida.`,
+         `Incluye el número de pisos, el área techada de cada piso y la total, los materiales, la fecha de terminación y el valor de la obra. Se inscribe en la descripción del inmueble.`] },
+    { t:"Por qué importa",
+      p:[`Sin fábrica inscrita, para el Registro solo existe el terreno. Entonces:`,
+         `<ul><li>no se pueden independizar los departamentos;</li><li>el banco no toma la casa como garantía por su valor real;</li><li>la venta y la herencia se complican.</li></ul>`] },
+    { t:"El camino depende de dos preguntas",
+      p:[`¿La obra tuvo licencia? ¿Cuándo se terminó?`],
+      arbol:[
+        ["A","Tiene licencia de edificación","Al terminar, la municipalidad otorga la conformidad de obra y declaratoria de edificación.","Municipalidad → SUNARP"],
+        ["B","Sin licencia, terminada hasta el 31 de diciembre de 2016","Regularización directa con verificador responsable y FOR (Ley 27157, ampliada por la Ley 30830).","SUNARP"],
+        ["C","Sin licencia, hecha entre el 1 de enero de 2017 y el 17 de setiembre de 2018","Licencia de regularización en la municipalidad. Después, conformidad y registro.","Municipalidad → SUNARP"],
+        ["D","Sin licencia, hecha después del 17 de setiembre de 2018","No hay una vía nacional de regularización. Revisa si el distrito tiene una ordenanza o un programa propio.","Caso por caso"]
+      ] },
+    { t:"Cómo se prueba cuándo se terminó la obra",
+      p:[`Con documentos con fecha: declaraciones de autoavalúo (HR y PU) que ya declaraban el área construida, recibos de luz o agua, fotos fechadas, imágenes satelitales históricas o documentos municipales.`,
+         `El verificador o el profesional constatador tiene que sustentar esa fecha.`] }
+   ],
+   ojo:`En diciembre de 2023 salió el Decreto Legislativo 1595, que junta estas regularizaciones en un solo régimen. Mantiene el corte de 2016 para SUNARP, añade una excepción para viviendas unifamiliares y bifamiliares de hasta 3 pisos terminadas hasta el 31 de diciembre de 2021 y conserva el tramo municipal 2017–2018. Pero rige recién 120 días hábiles después de publicado su reglamento. En cada caso, confirma en tu oficina o en El Peruano si ya está vigente.`,
+   preguntas:[
+    { q:"Casa terminada en 2010, sin licencia. ¿Qué vía corresponde?", ops:["Conformidad de obra municipal","Regularización ante SUNARP con verificador y FOR","Licencia de regularización municipal","No se puede regularizar"], ok:1,
+      exp:"Terminó antes del 31 de diciembre de 2016, así que entra en la Ley 27157 ampliada por la Ley 30830." },
+    { q:"Edificio con licencia de 2022, ya terminado. ¿Qué pides a la municipalidad?", ops:["Licencia de regularización","Conformidad de obra y declaratoria de edificación","Certificado de búsqueda catastral","Independización"], ok:1,
+      exp:"Si tuvo licencia, se cierra con la conformidad de obra y la declaratoria de edificación." },
+    { q:"Obra sin licencia hecha en marzo de 2018. ¿Qué vía corresponde?", ops:["Regularización ante SUNARP con FOR","Licencia de regularización municipal","Conformidad de obra sin variaciones","Ninguna"], ok:1,
+      exp:"Está dentro del tramo del 1 de enero de 2017 al 17 de setiembre de 2018: va a la municipalidad." },
+    { q:"¿Qué dato NO forma parte de la declaratoria de fábrica?", ops:["Área techada por piso","Valor de la obra","Fecha de terminación","Nombre del maestro de obra"], ok:3,
+      exp:"Se declara lo construido, su área, materiales, fecha y valor. Quién la construyó no se inscribe." },
+    { q:"¿Qué sirve mejor para probar la antigüedad de una construcción?", ops:["Un certificado de parámetros reciente","HR y PU antiguos que ya declaraban la construcción","Un plano nuevo hecho por ti","La licencia del vecino"], ok:1,
+      exp:"Necesitas documentos de la época. El autoavalúo antiguo con el área construida es de los más usados." }
+   ],
+   escrita:{ q:"Describe los caminos para inscribir una fábrica según la fecha de la obra y si tuvo licencia.",
+     puntos:["Con licencia: conformidad de obra y declaratoria de edificación en la municipalidad, luego SUNARP","Sin licencia y terminada hasta el 31-12-2016: regularización en SUNARP con verificador y FOR (Ley 27157 / 30830)","Sin licencia entre el 1-1-2017 y el 17-9-2018: licencia de regularización municipal","Después de setiembre de 2018 no hay vía nacional; revisar ordenanzas del distrito","Mención opcional: el DL 1595 aún depende de su reglamento"],
+     modelo:"Si la obra tuvo licencia, al terminar se pide la conformidad de obra y declaratoria de edificación y luego se inscribe. Si no tuvo licencia y terminó hasta el 31 de diciembre de 2016, se regulariza directo en SUNARP con verificador y FOR. Si se hizo entre enero de 2017 y el 17 de setiembre de 2018, se pide licencia de regularización en la municipalidad. Después de esa fecha no hay vía nacional y hay que ver si el distrito tiene una ordenanza." },
+   oral:{ q:"Una señora te dice: «Construí mi casa en 2005 y nunca saqué licencia. ¿Ya no se puede hacer nada?». Respóndele.",
+     puntos:["Sí se puede, porque terminó antes del 31-12-2016","Va por la regularización ante SUNARP (Ley 27157 / 30830)","Se necesita un verificador responsable y el FOR","Hay que probar la antigüedad con documentos (autoavalúo, recibos, fotos)","Si algo no cumple los parámetros, se inscribe como carga"],
+     modelo:"Sí se puede. Como su casa se terminó antes de 2017, puede regularizarse directamente en Registros Públicos. Un verificador responsable la mide, hace los planos y el informe, y se presenta un formulario registral con firmas certificadas por notario. Necesitamos papeles que prueben que existía en esa época, como su autoavalúo. Si algo no cumple las normas, igual se inscribe pero queda anotado como carga." }
+ },
+ { id:"s12", titulo:"Regularización con verificador", min:8,
+   fichas:[
+    { t:"El verificador responsable",
+      p:[`Arquitecto o ingeniero civil colegiado y hábil, inscrito en el <b>Índice de Verificadores</b> de SUNARP.`,
+         `Constata en campo la edificación, firma los planos, el ITV y el FOR, y responde por la veracidad de lo que declara. Es posible que tú armes el expediente y que lo firme tu jefe u otro verificador.`] },
+    { t:"Los pasos",
+      p:[`<ol>
+        <li>Revisar la partida (copia literal, CRI) y pedir la búsqueda catastral.</li>
+        <li>Pedir el certificado de parámetros.</li>
+        <li>Hacer el levantamiento en campo: medidas, pisos, materiales.</li>
+        <li>Dibujar el plano de ubicación y los de distribución, y redactar la memoria descriptiva.</li>
+        <li>Redactar el ITV: comparar lo construido con los parámetros y anotar las diferencias.</li>
+        <li>Llenar el FOR. Firman el propietario y el verificador, y el notario certifica las firmas.</li>
+        <li>Presentar al Registro. El registrador califica.</li>
+        <li>Inscripción, o bien observación para subsanar.</li></ol>`] },
+    { t:"Cargas técnicas",
+      p:[`Si la edificación no cumple los parámetros (por ejemplo, invade el retiro o supera la altura), igual puede inscribirse, pero esa diferencia se anota en la partida como <b>carga</b>.`,
+         `Quien compre después sabrá que existe. Por eso el ITV tiene que ser exacto.`],
+      ej:`Parámetro: retiro frontal de 3.00 m. Construido: 0.00 m en el 2.º y 3.er piso, por un volado. El ITV lo declara y la partida registra la carga.` },
+    { t:"Cómo responde el Registro",
+      p:[`<ul><li><b>Inscrito:</b> todo conforme.</li>
+          <li><b>Observado:</b> hay defectos que se pueden corregir. Tienes un plazo para subsanar.</li>
+          <li><b>Liquidado:</b> falta pagar un mayor derecho registral.</li>
+          <li><b>Tachado:</b> el defecto no se puede corregir o venció el plazo. Hay que presentar de nuevo.</li></ul>`] }
+   ],
+   ojo:`La Ley 30830 permitió, por única vez, volver a regularizar un predio que ya tenía fábrica inscrita y luego creció (por ejemplo, una casa de un piso que hoy tiene tres). Confirma cada caso con el registrador o tu jefe.`,
+   preguntas:[
+    { q:"¿Quién puede actuar como verificador responsable?", ops:["Cualquier arquitecto egresado","Arquitecto o ingeniero civil colegiado y hábil, inscrito en el Índice de Verificadores de SUNARP","El notario","El propietario"], ok:1,
+      exp:"Necesita estar colegiado, hábil e inscrito en el índice de SUNARP." },
+    { q:"¿Qué documento compara lo construido con los parámetros?", ops:["El CRI","El ITV","La copia literal","El TUPA"], ok:1,
+      exp:"El Informe Técnico de Verificación anota cumplimientos y discrepancias." },
+    { q:"El 3.er piso invade el retiro. ¿Qué pasa en la regularización registral?", ops:["Se rechaza de plano","Se inscribe y la discrepancia se anota como carga","Se inscribe sin decir nada","Se manda a demoler"], ok:1,
+      exp:"Lo que no cumple se declara en el ITV y se registra como carga técnica." },
+    { q:"Tu título salió «observado». ¿Qué significa?", ops:["Que ya está inscrito","Que hay defectos subsanables y un plazo para corregirlos","Que se rechazó para siempre","Que debes pagar una multa municipal"], ok:1,
+      exp:"Observado = corregible dentro del plazo. Tachado = hay que volver a presentar." },
+    { q:"¿Quién certifica las firmas del FOR?", ops:["El registrador","El notario","La municipalidad","El Colegio de Arquitectos"], ok:1,
+      exp:"Las firmas del propietario y del verificador se certifican ante notario." }
+   ],
+   escrita:{ q:"Enumera los pasos de una regularización con verificador, desde la partida hasta la inscripción.",
+     puntos:["Revisar la partida y pedir la búsqueda catastral","Certificado de parámetros","Levantamiento en campo","Planos y memoria descriptiva","ITV comparando con los parámetros","FOR firmado, con firmas certificadas por notario","Presentación y calificación registral","Inscripción u observación"],
+     modelo:"1) Reviso la copia literal y el CRI y pido la búsqueda catastral. 2) Pido el certificado de parámetros. 3) Hago el levantamiento. 4) Dibujo los planos de ubicación y distribución y redacto la memoria. 5) Redacto el ITV comparando con los parámetros. 6) Lleno el FOR, firman el propietario y el verificador y el notario certifica las firmas. 7) Lo presento al Registro y el registrador califica. 8) Se inscribe o se observa y subsano." },
+   oral:{ q:"Explica qué es una carga técnica y por qué el ITV tiene que ser exacto.",
+     puntos:["Es una anotación en la partida de lo que no cumple los parámetros","Permite inscribir la fábrica aunque haya discrepancias","Queda a la vista de cualquier comprador o banco","El verificador responde por lo que declara en el ITV"],
+     modelo:"Una carga técnica es la anotación en la partida de lo que no cumple los parámetros, por ejemplo, un piso de más o un retiro invadido. Permite inscribir la fábrica, pero cualquier comprador o banco la va a ver. El ITV tiene que ser exacto porque el verificador responde por lo que declara." }
+ },
+ { id:"s13", titulo:"Con licencia: conformidad de obra", min:6,
+   fichas:[
+    { t:"Cuando todo se hizo con permiso",
+      p:[`Si la obra tiene licencia de edificación, al terminar se pide a la municipalidad la <b>conformidad de obra y declaratoria de edificación</b>.`,
+         `La municipalidad verifica que lo construido corresponda a los planos aprobados.`] },
+    { t:"Sin variaciones o con variaciones",
+      p:[`<ul><li><b>Sin variaciones:</b> se construyó igual a lo aprobado.</li>
+          <li><b>Con variaciones:</b> hubo cambios no sustanciales, que no alteran los parámetros, la estructura ni el uso. Se presentan planos de replanteo.</li></ul>`,
+         `Si los cambios sí alteran los parámetros, normalmente hace falta modificar antes el proyecto aprobado.`] },
+    { t:"Qué suele pedirse",
+      p:[`El FUE en su sección de conformidad, firmado; los planos de replanteo y su memoria si hubo variaciones; la declaración del profesional responsable y el pago del derecho.`,
+         `Cuando se aprueba, la municipalidad entrega el documento que luego se inscribe en SUNARP. Los requisitos exactos están en el TUPA del distrito.`] },
+    { t:"Variantes que usan las inmobiliarias",
+      p:[`Existen la conformidad a nivel de casco habitable y la declaratoria de edificación anticipada. Sirven para inscribir y vender las unidades antes de terminar los acabados, y después se completa el trámite.`] }
+   ],
+   ojo:`Los plazos y costos cambian según el distrito. Descarga el TUPA vigente antes de armar el expediente.`,
+   preguntas:[
+    { q:"Obra con licencia, construida igual a los planos aprobados. ¿Qué pides?", ops:["Conformidad de obra sin variaciones","Conformidad de obra con variaciones","Licencia de regularización","Regularización con FOR"], ok:0,
+      exp:"Si no hubo cambios, es sin variaciones." },
+    { q:"Moviste unos tabiques sin afectar los parámetros ni la estructura. ¿Qué corresponde?", ops:["Nueva licencia completa","Conformidad con variaciones y planos de replanteo","Nada, no se informa","Regularización ante SUNARP"], ok:1,
+      exp:"Es un cambio no sustancial: se declara con planos de replanteo." },
+    { q:"¿Qué se inscribe en SUNARP después de la conformidad?", ops:["El certificado de parámetros","El documento de conformidad y declaratoria que emite la municipalidad","El TUPA","La carta de seguridad de obra sola"], ok:1,
+      exp:"El título que da mérito a la inscripción es el documento municipal de conformidad y declaratoria." },
+    { q:"¿Dónde ves los requisitos y costos de un trámite en tu distrito?", ops:["En el TUPA de la municipalidad","En la copia literal","En el certificado de parámetros","En el CRI"], ok:0,
+      exp:"El TUPA es la lista oficial de cada entidad." }
+   ],
+   escrita:{ q:"Explica la diferencia entre conformidad de obra sin variaciones y con variaciones.",
+     puntos:["Sin variaciones: lo construido es igual a lo aprobado","Con variaciones: cambios no sustanciales","Los no sustanciales no alteran parámetros, estructura ni uso","Con variaciones se presentan planos de replanteo","Si se alteran parámetros, hace falta modificar antes el proyecto"],
+     modelo:"Sin variaciones es cuando se construyó exactamente lo aprobado. Con variaciones es cuando hubo cambios menores que no afectan los parámetros, la estructura ni el uso; en ese caso se presentan planos de replanteo. Si los cambios afectan los parámetros, primero hay que modificar el proyecto." },
+   oral:{ q:"Explícale a un practicante qué pasa al terminar una obra que sí tuvo licencia.",
+     puntos:["Se pide la conformidad de obra y declaratoria de edificación","La municipalidad verifica que se construyó según los planos","Puede ser con o sin variaciones","Con el documento aprobado se inscribe en SUNARP","Revisar el TUPA"],
+     modelo:"Cuando terminas una obra con licencia, pides a la municipalidad la conformidad de obra y declaratoria de edificación. Ellos revisan que se haya construido según los planos. Si hubo cambios menores, presentas planos de replanteo. Con el documento aprobado vas a SUNARP para inscribir la fábrica. Los requisitos los ves en el TUPA." }
+ }
+]},
+{ id:"m2", num:"02", titulo:"Regularización municipal", sub:"El permiso que llega después", sesiones:[
+ { id:"s21", titulo:"La licencia de regularización", min:7,
+   fichas:[
+    { t:"Qué es",
+      p:[`Es el permiso que da la municipalidad cuando la obra ya se hizo sin licencia.`,
+         `No es un perdón total: hay que demostrar que la edificación cumple la normativa y pagar una multa.`] },
+    { t:"A qué obras alcanza",
+      p:[`Según el artículo 30 de la Ley 29090 (modificado por el DL 1426) y el Reglamento de Licencias (DS 029-2019-VIVIENDA): edificaciones hechas sin licencia <b>entre el 1 de enero de 2017 y el 17 de setiembre de 2018</b>.`,
+         `Se evalúa con la normativa vigente cuando se construyó o, si es más favorable, con la actual.`,
+         `<ul><li>Obras hasta 2016: van por SUNARP (sesión anterior).</li><li>Obras posteriores a setiembre de 2018: no hay vía nacional. Algunos distritos sacan ordenanzas temporales; por ejemplo, el Callao abrió un régimen para obras de 2017 a 2024.</li></ul>`] },
+    { t:"La multa",
+      p:[`El reglamento fija una multa del <b>10 % del valor de la obra</b> que se regulariza.`,
+         `El valor de obra se calcula con los <b>Valores Unitarios Oficiales de Edificación</b>, un cuadro que publica cada año el Ministerio de Vivienda, multiplicados por el área techada.`],
+      ej:`120 m² × S/ 1,000 por m² = S/ 120,000 de valor de obra → multa de S/ 12,000.<br><small class="suave">El valor por m² es inventado para el ejemplo. El real sale de la categoría de cada partida del cuadro.</small>` },
+    { t:"Si no cumple",
+      p:[`Si la edificación no cumple las normas y no puede adecuarse, la municipalidad declara improcedente el pedido y puede ordenar demoler lo que no cumple.`,
+         `Por eso, antes de presentar, compara con los parámetros y define si hace falta demoler o adecuar algo.`] }
+   ],
+   ojo:`El DL 1595 (2023) absorbe este tramo 2017–2018 en su nuevo régimen y derogará el artículo 30 cuando entre en vigor, que depende de su reglamento. Los expedientes iniciados antes siguen con la norma anterior. Pregunta siempre cuál aplica.`,
+   preguntas:[
+    { q:"Obra sin licencia hecha en febrero de 2017. ¿Qué corresponde?", ops:["Licencia de regularización municipal","Regularización ante SUNARP con FOR","Conformidad de obra","No se puede hacer nada"], ok:0,
+      exp:"Está dentro del tramo 2017 – 17 de setiembre de 2018." },
+    { q:"El valor de la obra a regularizar es S/ 200,000. ¿Cuánto es la multa?", ops:["S/ 2,000","S/ 10,000","S/ 20,000","S/ 40,000"], ok:2,
+      exp:"10 % de 200,000 = 20,000." },
+    { q:"Una obra sin licencia de 2021 en un distrito de Lima. ¿Qué haces primero?", ops:["Presentar el FOR en SUNARP","Revisar si el distrito tiene una ordenanza o programa de regularización vigente","Pedir conformidad sin variaciones","Pagar la multa del 10 % y listo"], ok:1,
+      exp:"Fuera de los tramos nacionales, depende de lo que ofrezca cada distrito (y de si ya rige el DL 1595)." },
+    { q:"¿Con qué se calcula el valor de obra?", ops:["Con lo que dice el propietario","Con los Valores Unitarios Oficiales de Edificación y el área techada","Con el valor del terreno","Con el autoavalúo del vecino"], ok:1,
+      exp:"Se usa el cuadro oficial del Ministerio de Vivienda." },
+    { q:"La edificación no cumple y no puede adecuarse. ¿Qué puede pasar?", ops:["Se aprueba igual con multa doble","Se declara improcedente y puede ordenarse la demolición de lo que no cumple","Se inscribe como carga en SUNARP","Nada"], ok:1,
+      exp:"En la vía municipal hay que cumplir la norma. La carga técnica es de la vía registral." }
+   ],
+   escrita:{ q:"¿Qué es una licencia de regularización, a qué obras se aplica y qué costo adicional tiene?",
+     puntos:["Permiso municipal para una obra ya hecha sin licencia","Obras del 1-1-2017 al 17-9-2018","Debe cumplir la normativa (la de su época o la actual si es más favorable)","Multa del 10 % del valor de obra","Valor de obra con los Valores Unitarios Oficiales"],
+     modelo:"Es el permiso que da la municipalidad a una obra hecha sin licencia entre el 1 de enero de 2017 y el 17 de setiembre de 2018. La obra tiene que cumplir la normativa de su época o la actual si es más favorable. Además del derecho de trámite, se paga una multa del 10 % del valor de la obra, calculado con los Valores Unitarios Oficiales." },
+   oral:{ q:"Un cliente construyó su cuarto piso en enero de 2018 sin licencia. Explícale qué opciones tiene.",
+     puntos:["Está dentro del tramo de regularización municipal","Debe cumplir los parámetros o adecuarse","Pagará una multa del 10 % del valor de esa obra","Luego vienen la conformidad y la inscripción en SUNARP","Confirmar qué norma aplica (DL 1595)"],
+     modelo:"Como lo construyó en enero de 2018, puede pedir una licencia de regularización en la municipalidad. Primero revisamos que el piso cumpla los parámetros o qué habría que adecuar. Va a pagar una multa del 10 % del valor de esa obra. Después se inscribe en Registros Públicos. Antes de empezar confirmo qué norma está vigente." }
+ },
+ { id:"s22", titulo:"El expediente municipal", min:8,
+   fichas:[
+    { t:"Los requisitos más comunes",
+      p:[`<ul><li>FUE de regularización, firmado por el propietario y el profesional constatador.</li>
+          <li>Si el predio no está inscrito a nombre del solicitante, el documento que acredite la propiedad.</li>
+          <li>Declaración jurada de habilitación del profesional.</li>
+          <li>Plano de ubicación y localización.</li>
+          <li>Planos de arquitectura: plantas, cortes y elevaciones.</li>
+          <li>Memoria descriptiva.</li>
+          <li>Carta de seguridad de obra, firmada por un ingeniero civil.</li>
+          <li>Si hay bienes comunes, autorización de la junta de propietarios.</li>
+          <li>Comprobante de pago de la multa y del derecho de trámite.</li></ul>`,
+         `La lista exacta la fija el TUPA de tu distrito.`] },
+    { t:"El recorrido del expediente",
+      p:[`<ol><li><b>Mesa de partes:</b> recibe y te da un cargo con número de expediente.</li>
+          <li><b>Revisión documentaria.</b></li>
+          <li><b>Verificación técnica:</b> inspección en campo.</li>
+          <li><b>Observaciones</b>, si las hay, con un plazo para subsanar.</li>
+          <li><b>Resolución:</b> licencia de regularización.</li>
+          <li>Conformidad y declaratoria, y luego <b>SUNARP</b>.</li></ol>`] },
+    { t:"Las observaciones más frecuentes",
+      p:[`<ul><li>Áreas que no cuadran entre los planos, el FUE y la memoria.</li>
+          <li>Falta una firma o un sello.</li>
+          <li>Certificado de parámetros vencido.</li>
+          <li>Planos que no reflejan lo construido; la inspección lo detecta.</li>
+          <li>Falta la autorización de los copropietarios.</li></ul>`] },
+    { t:"Tu revisión antes de ir a mesa de partes",
+      p:[`<ul><li>El cuadro de áreas es idéntico en todo el expediente.</li>
+          <li>Todo está foliado y numerado.</li>
+          <li>Llevas una copia para tu cargo.</li>
+          <li>Anotas el número de expediente y la fecha.</li>
+          <li>Controlas el plazo de las observaciones.</li></ul>`],
+      ej:`<span class="mono">Cargo · Exp. N.° 12345-2026 · 07/11/2026 · 38 folios</span><br>Guárdalo: es tu prueba de que presentaste y desde cuándo corren los plazos.` }
+   ],
+   ojo:`Cada municipalidad tiene su propio TUPA, con sus formatos y costos. Lo que aprendas en un distrito no siempre vale igual en el de al lado.`,
+   preguntas:[
+    { q:"¿Quién firma la carta de seguridad de obra?", ops:["El arquitecto proyectista","Un ingeniero civil","El notario","El propietario"], ok:1,
+      exp:"Da fe de la estructura, por eso la firma un ingeniero civil." },
+    { q:"¿Dónde debe coincidir el área techada total?", ops:["Solo en el FUE","En el FUE, la memoria y los planos","Solo en la memoria","Solo en los planos"], ok:1,
+      exp:"Un número distinto en cualquier documento genera observación." },
+    { q:"¿Para qué sirve el cargo de mesa de partes?", ops:["Para pagar la multa","Para probar que presentaste, con número y fecha","Es la licencia","No sirve para nada"], ok:1,
+      exp:"El cargo prueba la presentación y marca el inicio de los plazos." },
+    { q:"En la inspección aparece un piso que no está en tus planos. ¿Qué pasa?", ops:["Se aprueba igual","Te observan y debes corregir los planos para que reflejen lo construido","Te inscriben una carga","Se archiva sin aviso"], ok:1,
+      exp:"Los planos tienen que mostrar exactamente lo construido." },
+    { q:"Edificio con departamentos ya vendidos y bienes comunes. ¿Qué documento extra se pide?", ops:["Autorización de la junta de propietarios","Una copia del TUPA","El CRI de cada vecino","Nada"], ok:0,
+      exp:"Si se tocan bienes comunes, deciden los propietarios." }
+   ],
+   escrita:{ q:"Arma la lista de documentos de un expediente de regularización municipal.",
+     puntos:["FUE de regularización firmado","Documento de propiedad si no está inscrito","Declaración de habilitación del profesional","Plano de ubicación y localización","Planos de arquitectura y memoria descriptiva","Carta de seguridad de obra (ingeniero civil)","Autorización de la junta si hay bienes comunes","Pago de multa y derecho de trámite","Verificar con el TUPA del distrito"],
+     modelo:"FUE de regularización firmado por el propietario y el profesional; documento de propiedad si no está inscrito; declaración de habilitación del profesional; plano de ubicación y localización; planos de plantas, cortes y elevaciones; memoria descriptiva; carta de seguridad de obra firmada por un ingeniero civil; autorización de la junta si hay bienes comunes; y los pagos de la multa y del derecho. Todo verificado con el TUPA del distrito." },
+   oral:{ q:"Cuéntale a tu jefe, como si fuera un reporte, los pasos que sigue el expediente desde que lo dejas en mesa de partes.",
+     puntos:["Mesa de partes y cargo con número","Revisión documentaria","Inspección o verificación técnica","Observaciones y subsanación en plazo","Resolución de licencia","Luego conformidad y SUNARP"],
+     modelo:"Lo dejé en mesa de partes y tengo el cargo con el número de expediente. Ahora pasa a revisión documentaria y luego a la inspección. Si nos observan, tenemos un plazo para subsanar. Cuando salga la resolución de licencia de regularización, seguimos con la conformidad y la inscripción en SUNARP." }
+ }
+]},
+{ id:"m3", num:"03", titulo:"Independización", sub:"Cada unidad con su partida", sesiones:[
+ { id:"s31", titulo:"Qué es independizar", min:7,
+   fichas:[
+    { t:"Qué es",
+      p:[`Es crear una partida registral nueva para una parte de un predio. La partida original, llamada <b>matriz</b>, sigue existiendo.`],
+      ej:`Edificio de 3 departamentos: queda la partida matriz y se abren 3 partidas nuevas, una por departamento.` },
+    { t:"No confundir",
+      p:[`<ul><li><b>Subdivisión:</b> dividir un terreno en lotes. Primero la aprueba la municipalidad con una resolución y luego se independiza en SUNARP.</li>
+          <li><b>Independización de unidades:</b> dividir una edificación en departamentos, tiendas o estacionamientos. Requiere la fábrica inscrita (o inscribirla a la vez) y un reglamento interno.</li>
+          <li><b>Acumulación:</b> lo contrario, unir varios predios en una sola partida.</li></ul>`] },
+    { t:"Dos regímenes de la Ley 27157",
+      p:[`<ul><li><b>Propiedad exclusiva y propiedad común:</b> las unidades comparten bienes comunes (escaleras, pasadizos, ductos, azotea). Hay junta de propietarios y reglamento interno. Es lo típico en edificios.</li>
+          <li><b>Independización y copropiedad:</b> unidades más independientes, como casas en un mismo lote, que comparten solo algunos bienes en copropiedad.</li></ul>`,
+         `En edificios de departamentos casi siempre se usa el primero.`] },
+    { t:"Qué revisa SUNARP",
+      p:[`<ul><li>La partida matriz con la fábrica inscrita.</li>
+          <li>El reglamento interno.</li>
+          <li>Los planos de independización con el área, los linderos y las medidas de cada unidad.</li>
+          <li>Que cada unidad tenga acceso a la vía pública, directo o por áreas comunes.</li>
+          <li>Que las áreas cuadren con la fábrica.</li></ul>`] }
+   ],
+   ojo:`Si la fábrica todavía no está inscrita, se puede presentar junto con la independización, pero cualquier error en la fábrica arrastra a todo el título.`,
+   preguntas:[
+    { q:"Se independiza un edificio de 4 departamentos. ¿Cuántas partidas nuevas se abren?", ops:["1","3","4","5"], ok:2,
+      exp:"Una por departamento. La matriz ya existía y se mantiene." },
+    { q:"Quieres dividir un lote de 300 m² en dos lotes. ¿Qué va primero?", ops:["Reglamento interno","Subdivisión aprobada por la municipalidad","Declaratoria de fábrica","Junta de propietarios"], ok:1,
+      exp:"Dividir terreno es subdivisión: primero la municipalidad, luego SUNARP." },
+    { q:"¿Qué se necesita para independizar departamentos?", ops:["Solo los planos","Fábrica inscrita (o simultánea) y reglamento interno","Solo la licencia","Certificado de parámetros nuevo"], ok:1,
+      exp:"Sin la fábrica no existen los departamentos para el Registro. El reglamento define unidades y bienes comunes." },
+    { q:"La escalera y la azotea que usan todos son…", ops:["Bienes comunes","Unidades de propiedad exclusiva","Cargas técnicas","Áreas libres"], ok:0,
+      exp:"Son de uso y propiedad común." },
+    { q:"Una unidad no tiene acceso ni a la vía pública ni a un área común. ¿Se puede independizar así?", ops:["Sí, sin problema","No, toda unidad necesita acceso directo o por áreas comunes","Sí, si paga multa","Solo si es un estacionamiento"], ok:1,
+      exp:"El acceso es una condición básica para que la unidad sea independiente." }
+   ],
+   escrita:{ q:"Diferencia la subdivisión de la independización, con un ejemplo de cada una.",
+     puntos:["Subdivisión: dividir un terreno en lotes","La subdivisión la aprueba primero la municipalidad","Independización: crear partidas nuevas para partes de un predio (por ejemplo, departamentos)","La de unidades requiere fábrica inscrita y reglamento interno","Ejemplos concretos de cada caso"],
+     modelo:"La subdivisión es dividir un terreno en lotes, por ejemplo, partir un lote de 300 m² en dos de 150 m²; la aprueba primero la municipalidad. La independización es abrir partidas nuevas en SUNARP para partes de un predio, por ejemplo, los tres departamentos de un edificio; para eso se necesita la fábrica inscrita y un reglamento interno." },
+   oral:{ q:"Explícale a un propietario por qué no puede independizar sus departamentos si aún no inscribió la fábrica.",
+     puntos:["Para el Registro solo existe el terreno","La fábrica es la que inscribe los departamentos construidos","Se pueden presentar juntas, pero la fábrica es la base","También hace falta el reglamento interno"],
+     modelo:"Para Registros Públicos su predio todavía es solo un terreno: los departamentos no existen hasta que se inscriba la fábrica. Primero inscribimos lo construido, o lo presentamos todo junto, y con el reglamento interno abrimos una partida para cada departamento." }
+ },
+ { id:"s32", titulo:"Reglamento interno y porcentajes", min:8,
+   fichas:[
+    { t:"El reglamento interno",
+      p:[`Ordena la propiedad y la convivencia del edificio. Contiene:`,
+         `<ul><li>la descripción de cada unidad de propiedad exclusiva y de los bienes comunes;</li><li>el porcentaje de participación de cada unidad;</li><li>los derechos y obligaciones;</li><li>cómo se forma y decide la junta de propietarios;</li><li>cómo se reparten los gastos.</li></ul>`,
+         `Lo otorga el propietario o los propietarios y se inscribe en la partida matriz.`] },
+    { t:"Porcentajes de participación",
+      p:[`Dicen cuánto le corresponde a cada unidad en los bienes comunes y en los gastos. Lo más usado es calcularlos en proporción al área de cada unidad, aunque el reglamento puede fijar otro criterio. Tienen que sumar 100 %.`],
+      ej:`<div class="tabla"><table><thead><tr><th>Unidad</th><th class="r">Área</th><th class="r">%</th></tr></thead><tbody>
+        <tr><td>Dpto. 101</td><td class="r">85.00 m²</td><td class="r">32.08</td></tr>
+        <tr><td>Dpto. 201</td><td class="r">90.00 m²</td><td class="r">33.96</td></tr>
+        <tr><td>Dpto. 301</td><td class="r">90.00 m²</td><td class="r">33.96</td></tr>
+        <tr><th>Total</th><th class="r">265.00 m²</th><th class="r">100.00</th></tr></tbody></table></div>
+        <small class="suave">Cada % = área de la unidad ÷ 265 × 100.</small>` },
+    { t:"Planos de independización",
+      p:[`Plano de cada piso con las unidades delimitadas y numeradas, el área de cada una y la de los bienes comunes.`,
+         `Para cada unidad: linderos y medidas perimétricas por el frente, la derecha, la izquierda y el fondo; en edificios, también <b>por arriba y por abajo</b>.`,
+         `Lo acompaña una memoria descriptiva de independización que describe unidad por unidad.`],
+      ej:`<b>Dpto. 201 · 90.00 m²</b><br>Por el frente: con vacío hacia la avenida, 8.00 ml.<br>Por la derecha: con la escalera común, 11.25 ml.<br>Por arriba: con el Dpto. 301. Por abajo: con el Dpto. 101.` },
+    { t:"Errores que causan observación",
+      p:[`<ul><li>La suma de áreas no coincide con la fábrica.</li>
+          <li>Los porcentajes no suman 100 %.</li>
+          <li>La numeración cambia entre el plano, la memoria y el reglamento.</li>
+          <li>Los bienes comunes no están descritos.</li></ul>`] }
+   ],
+   ojo:`Al redondear a dos decimales, la suma puede dar 99.99 % o 100.01 %. Ajusta un centésimo en una unidad para que el total sea exactamente 100.00 % y que coincida en todos los documentos.`,
+   preguntas:[
+    { q:"Dos unidades: una de 60 m² y otra de 40 m². ¿Qué porcentaje tiene la de 60 m²?", ops:["40 %","50 %","60 %","66.67 %"], ok:2,
+      exp:"60 ÷ (60 + 40) = 0.60, o sea, 60 %." },
+    { q:"Tus porcentajes suman 99.5 %. ¿Qué pasa?", ops:["No importa","Te observan: deben sumar 100 %","Se reparte la diferencia sola","Se inscribe como carga"], ok:1,
+      exp:"Los porcentajes deben sumar exactamente 100 %." },
+    { q:"En un edificio, los linderos de un departamento incluyen además…", ops:["El nombre del propietario","Con qué colinda por arriba y por abajo","La altura del edificio","El valor de obra"], ok:1,
+      exp:"En propiedad horizontal también se indica la colindancia vertical." },
+    { q:"¿Dónde se inscribe el reglamento interno?", ops:["En la partida de cada vecino por separado","En la partida matriz","En la municipalidad","No se inscribe"], ok:1,
+      exp:"Rige para todo el edificio, por eso va en la matriz." },
+    { q:"¿Quién decide sobre los bienes comunes?", ops:["El primer comprador","La junta de propietarios","El registrador","El verificador"], ok:1,
+      exp:"La junta de propietarios, según las reglas del reglamento interno." }
+   ],
+   escrita:{ q:"Edificio con el 101 de 70 m², el 201 de 80 m² y el 301 de 80 m². Calcula el porcentaje de cada uno y explica cómo lo hiciste.",
+     puntos:["Área total: 230 m²","101: 70 ÷ 230 = 30.43 %","201 y 301: 80 ÷ 230 = 34.78 % cada uno","La suma da 99.99 %: ajustar un centésimo para llegar a 100.00 %","El criterio es la proporción de áreas"],
+     modelo:"Sumo las áreas: 70 + 80 + 80 = 230 m². Divido cada una entre 230: el 101 tiene 30.43 % y el 201 y el 301, 34.78 % cada uno. La suma da 99.99 %, así que ajusto un centésimo (por ejemplo, 301 con 34.79 %) para llegar a 100.00 %." },
+   oral:{ q:"Explica qué es el reglamento interno como si se lo contaras a los futuros vecinos del edificio.",
+     puntos:["Son las reglas del edificio","Describe qué es de cada uno y qué es común","Fija los porcentajes para gastos y decisiones","Explica cómo funciona la junta de propietarios","Se inscribe en Registros Públicos"],
+     modelo:"El reglamento interno son las reglas del edificio. Dice qué es de cada uno, como su departamento, y qué es de todos, como la escalera y la azotea. También fija cuánto aporta cada uno a los gastos y cómo decidimos en la junta de propietarios. Se inscribe en Registros Públicos, así que obliga a todos los dueños, también a los futuros." }
+ }
+]}
+];
+
+const GLOSARIO = [
+ ["Saneamiento físico-legal","Hacer que lo construido y la titularidad coincidan con lo que figura en la municipalidad y en SUNARP.","m0"],
+ ["Partida registral","Ficha del inmueble en SUNARP, con número propio, donde se inscriben todos sus actos.","m0"],
+ ["Asiento","Cada inscripción dentro de una partida.","m0"],
+ ["Copia literal","Copia de los asientos de una partida.","m0"],
+ ["CRI","Certificado Registral Inmobiliario: resume dueños y cargas a una fecha.","m0"],
+ ["Búsqueda catastral","Certificado que ubica el predio en la base gráfica de SUNARP y detecta superposiciones.","m0"],
+ ["Título archivado","Documentos que sustentaron una inscripción; ahí suelen estar los planos antiguos.","m0"],
+ ["Cargas y gravámenes","Rubro de la partida con hipotecas, embargos y cargas técnicas.","m0"],
+ ["Certificado de parámetros","Documento municipal con lo permitido en un lote: zonificación, altura, retiros, área libre, coeficiente. Vigencia de 36 meses.","m0"],
+ ["Zonificación","Uso de suelo asignado al lote (residencial, comercial, etc.).","m0"],
+ ["Retiro","Distancia mínima entre el límite del lote y la edificación.","m0"],
+ ["Área libre","Parte del terreno sin techar, en m² y en % del terreno.","m0"],
+ ["Coeficiente de edificación","Número que, multiplicado por el área del terreno, da el área techada máxima.","m0"],
+ ["HR / PU","Formularios del autoavalúo (impuesto predial): hoja resumen y predio urbano. Sirven para probar antigüedad.","m0"],
+ ["TUPA","Texto Único de Procedimientos Administrativos: requisitos, plazos y costos oficiales de cada trámite.","m0"],
+ ["FUE","Formulario Único de Edificación, el formulario municipal.","m0"],
+ ["Memoria descriptiva","Texto que describe lo que muestran los planos.","m0"],
+ ["Carta de seguridad de obra","Documento firmado por un ingeniero civil que da fe de la estructura.","m0"],
+ ["Declaratoria de fábrica","Inscripción de lo construido en la partida. La ley actual la llama declaratoria de edificación.","m1"],
+ ["Conformidad de obra","Aprobación municipal de que la obra se hizo según la licencia; puede ser con o sin variaciones.","m1"],
+ ["Variación no sustancial","Cambio que no altera parámetros, estructura ni uso; se declara con planos de replanteo.","m1"],
+ ["Verificador responsable","Arquitecto o ingeniero civil hábil, inscrito en el Índice de Verificadores de SUNARP, que constata y firma.","m1"],
+ ["FOR","Formulario Registral de SUNARP para la regularización de la Ley 27157.","m1"],
+ ["ITV","Informe Técnico de Verificación: compara lo construido con los parámetros.","m1"],
+ ["Carga técnica","Anotación en la partida de lo que no cumple los parámetros.","m1"],
+ ["Calificación registral","Revisión que hace el registrador antes de inscribir.","m1"],
+ ["Observado / Tachado","Observado: defecto subsanable con plazo. Tachado: hay que presentar de nuevo.","m1"],
+ ["Licencia de regularización","Permiso municipal para una obra hecha sin licencia en el tramo legal (2017 – set. 2018).","m2"],
+ ["Valores Unitarios Oficiales","Cuadro anual del Ministerio de Vivienda para calcular el valor de obra por m².","m2"],
+ ["Valor de obra","Área techada por el valor unitario oficial. Base de la multa y de algunos derechos.","m2"],
+ ["Mesa de partes","Ventanilla donde se presentan los expedientes.","m2"],
+ ["Cargo","Copia sellada con número y fecha que prueba que presentaste.","m2"],
+ ["Subsanar","Corregir lo observado dentro del plazo.","m2"],
+ ["Independización","Crear una partida nueva para una parte de un predio.","m3"],
+ ["Partida matriz","La partida original de la que se independizan las unidades.","m3"],
+ ["Subdivisión","División de un terreno en lotes, aprobada antes por la municipalidad.","m3"],
+ ["Acumulación","Unión de varios predios en una sola partida.","m3"],
+ ["Bienes comunes","Partes del edificio de todos: escaleras, pasadizos, ductos, azotea.","m3"],
+ ["Unidad de propiedad exclusiva","Departamento, tienda u oficina que pertenece a un solo dueño.","m3"],
+ ["Reglamento interno","Reglas del edificio: unidades, bienes comunes, porcentajes y junta.","m3"],
+ ["Porcentaje de participación","Parte que corresponde a cada unidad en los bienes comunes y los gastos.","m3"],
+ ["Junta de propietarios","Reunión de todos los dueños que decide sobre lo común.","m3"],
+ ["Linderos y medidas perimétricas","Con qué colinda cada lado de una unidad y cuánto mide.","m3"]
+];
+
+const FUENTES = [
+ ["Ley 30830 (2018)","Amplía la regularización de la Ley 27157 a obras terminadas hasta el 31-12-2016.","https://leyes.congreso.gob.pe/Documentos/2016_2021/ADLP/Texto_Consolidado/30830-TXM.pdf"],
+ ["TUO del Reglamento de la Ley 27157 (DS 035-2006-VIVIENDA)","Verificador, FOR, ITV y régimen de unidades inmobiliarias.","https://lpderecho.pe/tuo-reglamento-ley-regularizacion-edificaciones-decreto-supremo-035-2006-vivienda"],
+ ["TUO de la Ley 29090 (DS 006-2017-VIVIENDA)","Licencias, conformidad de obra y declaratoria de edificación.","https://cdn.www.gob.pe/uploads/document/file/2854408/TUO-%20LEY%2029090.pdf"],
+ ["Decreto Legislativo 1426 (2018)","Redacción del artículo 30: regularización 2017 – 17 set. 2018.","https://busquedas.elperuano.pe/dispositivo/NL/1692078-1"],
+ ["Decreto Legislativo 1595 (2023)","Nuevo régimen de regularización; entra en vigor tras su reglamento.","https://lpderecho.pe/decreto-legislativo-1595-regularizacion-del-derecho-de-propiedad-de-las-caracteristicas-fisicas-de-los-predios-urbanos-de-habilitaciones-urbanas-y-de-edificaciones/"],
+ ["Proyecto de reglamento del DL 1595 (RM 417-2024-VIVIENDA)","Prepublicación para comentarios.","https://www.gob.pe/institucion/vivienda/normas-legales/6144757-417-2024-vivienda"]
+];
+
+/* ================== ESTADO ================== */
+const SESIONES = MODULOS.flatMap(m => m.sesiones.map(s => ({...s, mod:m})));
+const porId = id => SESIONES.find(s => s.id === id);
+const CLAVE = "saneamiento-en-ruta:v1";
+let P = { t:0, hechas:{}, errores:{}, evals:{}, ultima:null };
+try { const g = JSON.parse(localStorage.getItem(CLAVE) || "null"); if (g && typeof g === "object") P = Object.assign(P, g); } catch(e) {}
+
+let refDB = null, colaDB = Promise.resolve(), tDB = null;
+function guardar(){
+  P.t = Date.now();
+  try { localStorage.setItem(CLAVE, JSON.stringify(P)); } catch(e) {}
+  if (refDB){ clearTimeout(tDB); tDB = setTimeout(() => { const copia = JSON.parse(JSON.stringify(P)); colaDB = colaDB.then(() => refDB.set(copia)).catch(() => {}); }, 900); }
+  pintarBadge();
+}
+async function iniciarSync(){
+  try{
+    if (!window.claude || !window.claude.use) return;
+    const [user, db] = await Promise.all([claude.use("user"), claude.use("db")]);
+    if (!user || !db) return;
+    const id = await user.id(); if (!id) return;
+    const ref = db.doc("data/users/" + id + "/progreso");
+    const snap = await ref.get();
+    if (snap.exists){
+      const r = snap.data();
+      if (r && (r.t || 0) > (P.t || 0)){ P = Object.assign({ t:0, hechas:{}, errores:{}, evals:{}, ultima:null }, JSON.parse(JSON.stringify(r))); try{ localStorage.setItem(CLAVE, JSON.stringify(P)); }catch(e){} render(); }
+    }
+    refDB = ref;
+    document.getElementById("sync").textContent = "Guardado en tu cuenta";
+    if (!snap.exists || ((snap.data()||{}).t || 0) < (P.t || 0)) guardar();
+  }catch(e){}
+}
+
+let sampleFn = null;
+(async () => { try{ if (window.claude && window.claude.use) sampleFn = await claude.use("sample"); }catch(e){ sampleFn = null; } })();
+
+/* ================== UTILIDADES ================== */
+const $ = s => document.querySelector(s);
+const app = $("#app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const LETRAS = "abcd";
+function barajar(n){ const a=[...Array(n).keys()]; for(let i=n-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function siguientePendiente(){ return SESIONES.find(s => !P.hechas[s.id]) || null; }
+function estadoSesion(s){ const h = P.hechas[s.id]; if (!h) return ['pend','Pendiente']; return h.nota >= 11 ? ['ok','Conforme · ' + h.nota] : ['obs','Observado · ' + h.nota]; }
+function cab(titulo, volver){ $("#titulo").textContent = titulo; $("#volver").hidden = !volver; }
+function marcarNav(v){ document.querySelectorAll(".nav a").forEach(a => a.classList.toggle("on", a.dataset.v === v)); }
+function pintarBadge(){ const n = Object.keys(P.errores).length; const b = $("#badge"); b.hidden = !n; b.textContent = n; }
+window.addEventListener("scroll", () => $("#cab").classList.toggle("borde", scrollY > 6), {passive:true});
+$("#volver").onclick = () => { pararVoz(); location.hash = ""; };
+
+/* ================== VISTAS ================== */
+function render(){
+  pararVoz();
+  const h = location.hash.replace("#","");
+  if (h.startsWith("sesion-") && porId(h.slice(7))) return abrirSesion(h.slice(7));
+  if (h === "glosario") return vistaGlosario();
+  if (h === "repaso") return vistaRepaso();
+  if (h === "fuentes") return vistaFuentes();
+  vistaInicio();
+}
+window.addEventListener("hashchange", () => { render(); scrollTo(0,0); });
+
+function vistaInicio(){
+  cab("Saneamiento en Ruta", false); marcarNav("inicio");
+  const hechas = SESIONES.filter(s => P.hechas[s.id]).length, total = SESIONES.length;
+  const sig = siguientePendiente();
+  let html = `<section class="saludo">
+    <span class="eti">Para estudiar en el camino</span>
+    <h2>Del lote a la partida, una sesión por viaje</h2>
+    <p class="suave">Cada sesión dura unos 7 minutos: lees cuatro fichas, marcas cinco preguntas y, si te queda tiempo, respondes por escrito y en voz alta.</p>
+    <div class="avance"><div class="barra"><i style="width:${hechas/total*100}%"></i></div><b>${hechas}/${total}</b></div>
+  </section>`;
+  if (sig) html += `<button class="continuar" onclick="location.hash='sesion-${sig.id}'">
+      <span class="eti">${hechas ? 'Continúa con' : 'Empieza por'} · Módulo ${sig.mod.num}</span>
+      <strong>${esc(sig.titulo)}</strong><span class="min">${sig.min} min · ${sig.preguntas.length} preguntas</span></button>`;
+  else html += `<div class="ficha"><h3>Terminaste las nueve sesiones</h3><p>Repasa tus errores o vuelve a cualquier sesión para mejorar la nota.</p></div>`;
+  MODULOS.forEach(m => {
+    html += `<section class="modulo"><header><span class="num">${m.num}</span><h3>${esc(m.titulo)}</h3></header><div class="lista">`;
+    m.sesiones.forEach(s => { const [c,t] = estadoSesion(s);
+      html += `<button class="ses" onclick="location.hash='sesion-${s.id}'"><span class="txt"><b>${esc(s.titulo)}</b><small>${s.min} min · ${esc(m.sub)}</small></span><span class="estado ${c}">${t}</span></button>`; });
+    html += `</div></section>`;
+  });
+  html += `<p class="suave" style="margin-top:26px;font-size:.88rem">Contenido para estudiar, revisado con la normativa a noviembre de 2026. Antes de presentar un expediente real, confirma el TUPA del distrito y la norma vigente.</p>`;
+  app.innerHTML = html;
+}
+
+/* ---------- Sesión ---------- */
+let S = null;
+function abrirSesion(id){
+  const s = porId(id);
+  if (!S || S.id !== id) S = { id, paso:"leer", qi:0, aciertos:0, orden:null, respondida:false, nuevosErrores:[] };
+  P.ultima = id;
+  cab(s.titulo, true); marcarNav("inicio");
+  pintarPaso();
+}
+function barraPasos(){
+  const pasos = [["leer","Leer"],["marcar","Marcar"],["escribir","Escribir"],["decir","Decir"]];
+  const idx = pasos.findIndex(p => p[0] === S.paso);
+  return `<div class="pasos">${pasos.map((p,i) => `<span class="${i===idx?'on':(i<idx||S.paso==='fin')?'hecho':''}">${p[1]}</span>`).join("")}</div>`;
+}
+function pintarPaso(){
+  const s = porId(S.id);
+  if (S.paso === "leer") return pasoLeer(s);
+  if (S.paso === "marcar") return pasoMarcar(s);
+  if (S.paso === "escribir") return pasoAbierta(s, "escrita");
+  if (S.paso === "decir") return pasoAbierta(s, "oral");
+  return pasoFin(s);
+}
+function irPaso(p){ S.paso = p; pintarPaso(); scrollTo(0,0); }
+
+function pasoLeer(s){
+  let html = barraPasos() + `<span class="eti">Módulo ${s.mod.num} · ${esc(s.mod.titulo)}</span><h2>${esc(s.titulo)}</h2>`;
+  if ('speechSynthesis' in window) html += `<div class="acciones" style="margin-top:4px"><button class="btn sec" id="voz">Escuchar las fichas</button></div>`;
+  s.fichas.forEach((f,i) => {
+    html += `<article class="ficha"><span class="n">${i+1}/${s.fichas.length}</span><h3>${f.t}</h3>${f.p.map(x => x.startsWith("<ul")||x.startsWith("<ol") ? x : `<p>${x}</p>`).join("")}`;
+    if (f.arbol) html += `<div class="arbol">${f.arbol.map(r => `<div class="rama"><span class="letra">${r[0]}</span><div><b>${r[1]}</b><small>${r[2]}</small><span class="va">${r[3]}</span></div></div>`).join("")}</div>`;
+    if (f.ej) html += `<div class="ej">${f.ej.includes('class="eti"') ? '' : '<span class="eti">Ejemplo</span>'}${f.ej}</div>`;
+    html += `</article>`;
+  });
+  if (s.ojo) html += `<div class="ojo"><span class="eti">Ojo</span>${s.ojo}</div>`;
+  html += `<div class="acciones"><button class="btn ancho" onclick="irPaso('marcar')">Pasar a las preguntas</button></div>`;
+  app.innerHTML = html;
+  const bv = $("#voz"); if (bv) bv.onclick = () => alternarVoz(s, bv);
+}
+
+function pasoMarcar(s){
+  const q = s.preguntas[S.qi];
+  if (!S.orden) S.orden = barajar(q.ops.length);
+  let html = barraPasos() + `<div class="preg"><span class="eti contador">Pregunta ${S.qi+1} de ${s.preguntas.length}</span><p class="q">${esc(q.q)}</p><div class="ops">`;
+  S.orden.forEach((oi,k) => { html += `<button class="op" data-oi="${oi}"><span class="l">${LETRAS[k]})</span><span>${esc(q.ops[oi])}</span></button>`; });
+  html += `</div><div id="fb"></div></div>`;
+  app.innerHTML = html;
+  app.querySelectorAll(".op").forEach(b => b.onclick = () => responder(s, q, +b.dataset.oi, b));
+}
+function responder(s, q, oi, boton){
+  if (S.respondida) return; S.respondida = true;
+  const bien = oi === q.ok, qid = S.id + "-" + S.qi;
+  if (bien){ S.aciertos++; delete P.errores[qid]; } else { P.errores[qid] = 1; }
+  app.querySelectorAll(".op").forEach(b => { b.disabled = true; if (+b.dataset.oi === q.ok) b.classList.add("correcta"); });
+  boton.classList.add("elegida", bien ? "bien" : "malo");
+  const ultima = S.qi === s.preguntas.length - 1;
+  $("#fb").innerHTML = `<div class="expl"><span class="sello ${bien?'ok':'mal'}">${bien?'CONFORME':'OBSERVADO'}</span><p>${esc(q.exp)}</p>
+    <div class="acciones" style="margin-bottom:0"><button class="btn ancho" id="sig">${ultima ? 'Ver mi nota' : 'Siguiente'}</button></div></div>`;
+  guardar();
+  $("#sig").onclick = () => {
+    S.respondida = false; S.orden = null;
+    if (ultima){
+      const nota = Math.round(S.aciertos / s.preguntas.length * 20);
+      const previa = P.hechas[S.id];
+      P.hechas[S.id] = { nota: previa ? Math.max(previa.nota, nota) : nota, fecha: new Date().toISOString().slice(0,10) };
+      S.notaMarcar = nota; guardar(); irPaso("escribir");
+    } else { S.qi++; pasoMarcar(s); }
+  };
+  $("#sig").scrollIntoView({block:"nearest", behavior:"smooth"});
+}
+
+/* ---------- Respuesta escrita y oral ---------- */
+const MIC = `<span class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3zm5-3a5 5 0 01-10 0H5a7 7 0 006 6.9V21h2v-2.1A7 7 0 0019 12z"/></svg></span>`;
+function pasoAbierta(s, tipo){
+  const it = s[tipo], k = S.id + "-" + tipo, oral = tipo === "oral";
+  let borrador = ""; try { borrador = localStorage.getItem(CLAVE + ":b:" + k) || ""; } catch(e) {}
+  let html = barraPasos() + `<div class="preg"><span class="eti">${oral ? 'Explícalo en voz alta' : 'Responde por escrito'}${S.notaMarcar != null ? ' · preguntas: ' + S.notaMarcar + '/20' : ''}</span><p class="q">${esc(it.q)}</p>`;
+  const Reco = !window.claude && (window.SpeechRecognition || window.webkitSpeechRecognition);
+  if (oral) html += `<div class="consejo-voz">${MIC}<span>${Reco ? 'Toca «Dictar» y habla' : 'Toca el micrófono de tu teclado y habla'} como si estuvieras frente a la persona. Si vas en el bus sin poder hablar, piénsalo en voz baja y luego marca qué puntos dijiste.</span></div>`;
+  if (oral && Reco) html += `<div class="acciones" style="margin-top:0"><button class="btn sec" id="dictar">Dictar</button></div>`;
+  html += `<textarea id="resp-${k}" placeholder="${oral ? 'Tu explicación dictada aparecerá aquí…' : 'Escribe con tus palabras…'}">${esc(borrador)}</textarea>
+    <div class="acciones"><button class="btn ancho" id="revisar">${sampleFn ? 'Revisar con Claude' : 'Comparar con la respuesta modelo'}</button>
+    ${oral ? '<button class="btn sec" id="solo">Solo marcar puntos</button>' : ''}<button class="btn bajo" id="saltar">Saltar</button></div>
+    <div id="resultado"></div></div>`;
+  app.innerHTML = html;
+  const ta = $("#resp-" + CSS.escape(k));
+  ta.oninput = () => { try { localStorage.setItem(CLAVE + ":b:" + k, ta.value); } catch(e) {} };
+  $("#saltar").onclick = () => irPaso(oral ? "fin" : "decir");
+  $("#revisar").onclick = () => { const t = ta.value.trim(); if (t.length < 15){ $("#resultado").innerHTML = `<p class="suave">Escribe al menos una o dos frases para poder revisarlo.</p>`; ta.focus(); return; } evaluar(s, tipo, t); };
+  const bs = $("#solo"); if (bs) bs.onclick = () => autoevaluar(s, tipo, "");
+  const bd = $("#dictar"); if (bd) bd.onclick = () => dictar(bd, ta, Reco);
+}
+let reco = null;
+function dictar(btn, ta, Reco){
+  if (reco){ try{ reco.stop(); }catch(e){} return; }
+  try{
+    reco = new Reco(); reco.lang = "es-PE"; reco.continuous = true; reco.interimResults = true;
+    const base = ta.value ? ta.value.replace(/\s*$/, " ") : "";
+    let finales = "";
+    reco.onresult = ev => { let prov = ""; for (let i = ev.resultIndex; i < ev.results.length; i++){ const r = ev.results[i]; if (r.isFinal) finales += r[0].transcript + " "; else prov += r[0].transcript; } ta.value = base + finales + prov; ta.oninput(); };
+    reco.onend = () => { reco = null; btn.textContent = "Dictar"; };
+    reco.onerror = ev => { if (ev.error === "not-allowed") btn.hidden = true; };
+    reco.start(); btn.textContent = "Detener dictado";
+  }catch(e){ reco = null; btn.hidden = true; }
+}
+let ctlEval = null;
+async function evaluar(s, tipo, texto){
+  const it = s[tipo], res = $("#resultado"), btn = $("#revisar");
+  if (!sampleFn) return autoevaluar(s, tipo, texto);
+  btn.disabled = true;
+  res.innerHTML = `<div class="pensando"><i></i>Revisando tu respuesta… puede tardar unos segundos.</div>`;
+  const prompt = `Eres docente de saneamiento físico-legal de edificaciones en Perú y evalúas a una arquitecta que recién empieza en el rubro y arma expedientes.
+Tema de la sesión: ${s.titulo} (módulo ${s.mod.titulo}).
+Pregunta: ${it.q}
+Tipo de respuesta: ${tipo === "oral" ? "explicación oral dictada por voz (ignora la puntuación y los errores del dictado)" : "respuesta escrita"}.
+Puntos clave que una buena respuesta debe tocar:
+${it.puntos.map(p => "- " + p).join("\n")}
+Respuesta modelo de referencia: ${it.modelo}
+
+Respuesta de la alumna:
+"""${texto.slice(0, 4000)}"""
+
+Califica en escala vigesimal (0 a 20; aprueba con 11). Sé cálida, directa y concreta, en español peruano sencillo. No inventes normas, fechas ni montos que no estén en los puntos clave o la respuesta modelo; si ella menciona un dato dudoso, dile que lo verifique.
+${tipo === "oral" ? "Valora también si se entendería bien al decirlo a un cliente." : ""}
+Responde solo con JSON: {"nota": número entero, "bien": [máx. 3 frases cortas], "falta": [máx. 3 frases cortas], "corrige": [máx. 2 frases cortas, vacío si no hay errores], "consejo": "una frase"}`;
+  ctlEval = new AbortController();
+  try{
+    const r = await sampleFn.json(prompt, { signal: ctlEval.signal });
+    const nota = Math.max(0, Math.min(20, Math.round(Number(r.nota) || 0)));
+    guardarEval(s, tipo, nota);
+    const lista = (t, a) => Array.isArray(a) && a.length ? `<h4>${t}</h4><ul>${a.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+    res.innerHTML = `<div class="expl bloque-eval"><div class="nota"><span class="cifra">${nota}<small>/20</small></span><span class="sello ${nota>=11?'ok':'mal'}">${nota>=11?'CONFORME':'OBSERVADO'}</span></div>
+      ${lista("Lo que hiciste bien", r.bien)}${lista("Lo que faltó", r.falta)}${lista("Para corregir", r.corrige)}
+      ${r.consejo ? `<p style="margin-top:10px"><b>Consejo:</b> ${esc(r.consejo)}</p>` : ""}
+      <details style="margin-top:10px"><summary>Ver respuesta modelo</summary><div class="modelo">${esc(it.modelo)}</div></details>
+      ${botonSeguir(tipo)}</div>`;
+  }catch(e){
+    if (e && e.code === "cancelled") { btn.disabled = false; res.innerHTML = ""; return; }
+    if (e && (e.code === "not_granted" || e.code === "sampling_disabled" || e.code === "not_declared" || e.code === "capability_disabled")) sampleFn = null;
+    const msg = e && e.code === "rate_limited" ? "Claude está ocupado por ahora. Compárate con la respuesta modelo y vuelve a intentarlo luego." : "No se pudo revisar esta vez. Mientras tanto, compárate con la respuesta modelo.";
+    autoevaluar(s, tipo, texto, msg);
+  }
+  btn.disabled = false; enlazarSeguir(tipo);
+}
+function autoevaluar(s, tipo, texto, aviso){
+  const it = s[tipo], res = $("#resultado");
+  res.innerHTML = `<div class="expl">${aviso ? `<p class="suave">${esc(aviso)}</p>` : ""}<p><b>Marca los puntos que tocaste:</b></p>
+    <div class="chequeo">${it.puntos.map((p,i) => `<label><input type="checkbox" id="pt-${i}"><span>${esc(p)}</span></label>`).join("")}</div>
+    <div class="modelo"><span class="eti">Respuesta modelo</span><br>${esc(it.modelo)}</div>
+    <div class="acciones"><button class="btn ancho" id="calif">Calcular mi nota</button></div><div id="autonota"></div></div>`;
+  $("#calif").onclick = () => {
+    const n = it.puntos.filter((_,i) => $("#pt-" + i).checked).length;
+    const nota = Math.round(n / it.puntos.length * 20); guardarEval(s, tipo, nota);
+    $("#autonota").innerHTML = `<div class="nota"><span class="cifra">${nota}<small>/20</small></span><span class="sello ${nota>=11?'ok':'mal'}">${nota>=11?'CONFORME':'OBSERVADO'}</span></div>${botonSeguir(tipo)}`;
+    enlazarSeguir(tipo);
+  };
+}
+function guardarEval(s, tipo, nota){ P.evals[S.id + "-" + tipo] = { nota, fecha: new Date().toISOString().slice(0,10) }; guardar(); }
+function botonSeguir(tipo){ return `<div class="acciones" style="margin-bottom:0"><button class="btn ancho" data-seguir="1">${tipo === "oral" ? 'Terminar la sesión' : 'Seguir: explicarlo en voz alta'}</button></div>`; }
+function enlazarSeguir(tipo){ app.querySelectorAll("[data-seguir]").forEach(b => b.onclick = () => irPaso(tipo === "oral" ? "fin" : "decir")); }
+
+function pasoFin(s){
+  const h = P.hechas[S.id], e = P.evals[S.id + "-escrita"], o = P.evals[S.id + "-oral"];
+  const nota = S.notaMarcar != null ? S.notaMarcar : (h ? h.nota : 0);
+  const i = SESIONES.findIndex(x => x.id === S.id), sig = SESIONES[i+1];
+  app.innerHTML = barraPasos() + `<div class="ficha resumen"><span class="eti">${esc(s.titulo)}</span>
+    <div style="margin:14px 0"><span class="sello ${nota>=11?'ok':'mal'}">${nota>=11?'CONFORME':'OBSERVADO'}</span></div>
+    <div class="tabla"><table><tbody>
+      <tr><td>Preguntas para marcar</td><td class="r"><b>${nota}/20</b></td></tr>
+      <tr><td>Respuesta escrita</td><td class="r">${e ? e.nota + '/20' : '—'}</td></tr>
+      <tr><td>Explicación oral</td><td class="r">${o ? o.nota + '/20' : '—'}</td></tr></tbody></table></div>
+    <p class="suave" style="margin-top:12px">${nota>=11 ? 'Bien. Las preguntas que fallaste quedan en Repaso.' : 'Vuelve a leer las fichas y repite la sesión cuando quieras; se guarda tu mejor nota.'}</p></div>
+    <div class="acciones">${sig ? `<button class="btn ancho" onclick="S=null;location.hash='sesion-${sig.id}'">Siguiente: ${esc(sig.titulo)}</button>` : ''}
+    <button class="btn sec ancho" onclick="S=null;location.hash=''">Volver a la ruta</button>
+    <button class="btn bajo" onclick="S=null;abrirSesion('${s.id}')">Repetir</button></div>`;
+}
+
+/* ---------- Voz (lectura en voz alta) ---------- */
+let hablando = false;
+function pararVoz(){ try{ if (hablando) speechSynthesis.cancel(); }catch(e){} hablando = false; try{ if (reco) reco.stop(); }catch(e){} }
+function alternarVoz(s, btn){
+  try{
+    if (hablando){ pararVoz(); btn.textContent = "Escuchar las fichas"; return; }
+    const tmp = document.createElement("div");
+    const texto = s.fichas.map(f => { tmp.innerHTML = f.t + ". " + f.p.join(" ") + (f.ej ? " Ejemplo. " + f.ej : "") + (f.arbol ? " " + f.arbol.map(r => r[0] + ". " + r[1] + ". " + r[2]).join(" ") : ""); return tmp.textContent; }).join(" ... ") + (s.ojo ? " ... Ojo. " + s.ojo : "");
+    const u = new SpeechSynthesisUtterance(texto.replace(/m²/g," metros cuadrados"));
+    const voces = speechSynthesis.getVoices(); const v = voces.find(x => /es[-_]PE/i.test(x.lang)) || voces.find(x => /^es/i.test(x.lang)); if (v) u.voice = v;
+    u.lang = v ? v.lang : "es-PE"; u.rate = 1;
+    u.onend = () => { hablando = false; btn.textContent = "Escuchar las fichas"; };
+    speechSynthesis.cancel(); speechSynthesis.speak(u); hablando = true; btn.textContent = "Detener la lectura";
+  }catch(e){ btn.hidden = true; }
+}
+
+/* ---------- Glosario ---------- */
+let G = { q:"", m:"todo", tarjetas:false, i:0, vuelta:false };
+function vistaGlosario(){
+  cab("Glosario", false); marcarNav("glosario");
+  const mods = [["todo","Todo"], ...MODULOS.map(m => [m.id, m.titulo])];
+  app.innerHTML = `<h2>Términos</h2><p class="suave">${GLOSARIO.length} palabras que vas a oír en la oficina, en la municipalidad y en SUNARP.</p>
+    <input class="buscar" id="buscar" type="search" placeholder="Buscar un término…" value="${esc(G.q)}">
+    <div class="filtros">${mods.map(([id,t]) => `<button class="filtro ${G.m===id?'on':''}" data-m="${id}">${esc(t)}</button>`).join("")}
+      <button class="filtro ${G.tarjetas?'on':''}" id="modo">${G.tarjetas ? 'Ver lista' : 'Tarjetas'}</button></div>
+    <div id="glo"></div>`;
+  $("#buscar").oninput = e => { G.q = e.target.value; G.i = 0; pintarGlosario(); };
+  app.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { G.m = b.dataset.m; G.i = 0; vistaGlosario(); });
+  $("#modo").onclick = () => { G.tarjetas = !G.tarjetas; G.i = 0; G.vuelta = false; vistaGlosario(); };
+  pintarGlosario();
+}
+function pintarGlosario(){
+  const q = G.q.trim().toLowerCase();
+  const lista = GLOSARIO.filter(g => (G.m === "todo" || g[2] === G.m) && (!q || (g[0] + " " + g[1]).toLowerCase().includes(q)));
+  const caja = $("#glo");
+  if (!lista.length){ caja.innerHTML = `<div class="vacio">No hay términos con «${esc(G.q)}».</div>`; return; }
+  if (!G.tarjetas){ caja.innerHTML = lista.map(g => `<div class="termino"><b>${esc(g[0])}</b><p>${esc(g[1])}</p></div>`).join(""); return; }
+  G.i = Math.min(G.i, lista.length - 1); const g = lista[G.i];
+  caja.innerHTML = `<button class="tarjeta" id="carta" aria-label="Voltear la tarjeta"><span class="eti">${G.i+1} de ${lista.length} · toca para ${G.vuelta?'ocultar':'ver'}</span>
+      <span class="t">${esc(g[0])}</span>${G.vuelta ? `<span class="d">${esc(g[1])}</span>` : `<span class="d suave">¿Qué significa?</span>`}</button>
+    <div class="acciones"><button class="btn sec ancho" id="ant" ${G.i===0?'disabled':''}>Anterior</button><button class="btn ancho" id="sigt" ${G.i===lista.length-1?'disabled':''}>Siguiente</button></div>`;
+  $("#carta").onclick = () => { G.vuelta = !G.vuelta; pintarGlosario(); };
+  $("#ant").onclick = () => { G.i--; G.vuelta = false; pintarGlosario(); };
+  $("#sigt").onclick = () => { G.i++; G.vuelta = false; pintarGlosario(); };
+}
+
+/* ---------- Repaso de errores ---------- */
+let R = null;
+function vistaRepaso(){
+  cab("Repaso", false); marcarNav("repaso");
+  const ids = Object.keys(P.errores).filter(id => { const [sid, i] = id.split("-"); return porId(sid) && porId(sid).preguntas[+i]; });
+  if (!ids.length){ app.innerHTML = `<h2>Repaso</h2><div class="vacio"><p>No tienes preguntas pendientes.</p><p>Cuando falles una en una sesión, aparecerá aquí para que la vuelvas a intentar.</p></div>`; R = null; return; }
+  if (!R || !R.lista.length) R = { lista: ids, i: 0, orden: null, hecha: false };
+  const id = R.lista[R.i]; const [sid, qi] = id.split("-"); const s = porId(sid), q = s.preguntas[+qi];
+  if (!R.orden) R.orden = barajar(q.ops.length);
+  app.innerHTML = `<h2>Repaso</h2><p class="suave">${ids.length} pregunta${ids.length>1?'s':''} por corregir. Si aciertas, sale de la lista.</p>
+    <div class="preg"><span class="eti">${esc(s.titulo)}</span><p class="q">${esc(q.q)}</p><div class="ops">
+    ${R.orden.map((oi,k) => `<button class="op" data-oi="${oi}"><span class="l">${LETRAS[k]})</span><span>${esc(q.ops[oi])}</span></button>`).join("")}</div><div id="fb"></div></div>`;
+  app.querySelectorAll(".op").forEach(b => b.onclick = () => {
+    if (R.hecha) return; R.hecha = true;
+    const oi = +b.dataset.oi, bien = oi === q.ok;
+    app.querySelectorAll(".op").forEach(x => { x.disabled = true; if (+x.dataset.oi === q.ok) x.classList.add("correcta"); });
+    b.classList.add("elegida", bien ? "bien" : "malo");
+    if (bien){ delete P.errores[id]; guardar(); }
+    $("#fb").innerHTML = `<div class="expl"><span class="sello ${bien?'ok':'mal'}">${bien?'CONFORME':'OBSERVADO'}</span><p>${esc(q.exp)}</p><div class="acciones" style="margin-bottom:0"><button class="btn ancho" id="sigr">Siguiente</button></div></div>`;
+    $("#sigr").onclick = () => { R.lista = R.lista.filter(x => P.errores[x]); if (bien) { R.i = R.i % Math.max(R.lista.length,1); } else { R.i = (R.i + 1) % R.lista.length; } R.orden = null; R.hecha = false; vistaRepaso(); };
+  });
+}
+
+/* ---------- Normas ---------- */
+function vistaFuentes(){
+  cab("Normas", false); marcarNav("fuentes");
+  app.innerHTML = `<h2>Las normas detrás de cada sesión</h2>
+    <p class="suave">No necesitas leerlas enteras ahora. Vuelve aquí cuando un caso te genere dudas.</p>
+    ${FUENTES.map(f => `<div class="fuente"><b>${esc(f[0])}</b><small>${esc(f[1])}</small><br><a href="${f[2]}" target="_blank" rel="noopener">Abrir el texto</a></div>`).join("")}
+    <div class="ojo" style="margin-top:14px"><span class="eti">Cómo usar esta app</span>Es para aprender los conceptos y el orden de los trámites. Los requisitos exactos cambian según el distrito y con cada norma nueva: antes de presentar, revisa el TUPA y pregunta en tu oficina.</div>`;
+}
+
+pintarBadge();
+render();
+iniciarSync();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js?v=38481e92").catch(() => {}));
+</script>
+</body>
+</html>
